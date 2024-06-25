@@ -1,0 +1,55 @@
+<h3>スケジュール一覧</h3>
+<% if flash[:notice] %>
+<p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>更新日時</th>
+      <th>詳細ページ</th>
+      <th>編集ページ</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.schedule_id %></td>
+        <td><%= post.title %></td>
+        <td><%= post.startdate %></td>
+        <td><%= post.enddate %></td>
+        <td>
+         <% if post.allday == true %>
+         ○
+         <% else post.allday == false %>
+         <% end %>
+        </td>
+        <td><%= post.updated_at.to_s(:datetime_jp) %></td>
+        <td>
+        <%= link_to "詳細", post %>
+        </td>
+        <td>
+        <%= link_to "編集",[:edit, post] %>
+        </td>
+        <td>
+        <%= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+        </td>
+      </tr>
+    <% end %>
+    <p><%= link_to "新規追加", :new_post %></p>
+  </tbody>
+</table>
+
+<div>
+<p> 予定の合計 <%= @schedule_total %></p>
+
+<p> 本日の日付 <%= Time.now.strftime("%Y/%m/%d")%></p>
+
+</div>
