@@ -13,15 +13,14 @@
 ActiveRecord::Schema.define(version: 2024_06_25_114927) do
 
   create_table "posts", force: :cascade do |t|
-    t.integer "schedule_id"
+    t.integer "user_id"
     t.string "title"
-    t.date "startdate"
-    t.date "enddate"
-    t.boolean "allday"
-    t.integer "renewal_date"
+    t.integer "startdate"
+    t.integer "enddate"
+    t.integer "allday"
+    t.integer "update"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "memo"
   end
 
 end
