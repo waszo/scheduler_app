@@ -18,5 +18,4 @@ class Post < ApplicationRecord
         errors.add(:終了日と開始日, "の日付を正しく記入してください")
         end
     end
-
 end
