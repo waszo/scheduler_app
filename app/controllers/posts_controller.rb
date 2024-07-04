@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params.require(:post).permit(:schedule_id, :title, :startdate, :enddate, :allday, :update_date, :memo))
     if @post.save
-      flash[:notice] = "登録完了しました"
+      flash[:notice] = "スケジュールの登録完了しました"
       redirect_to :posts
     else
       flash[:notice] = "スケジュールを登録できませんでした"
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice] = "削除しました"
+    flash[:notice_destroy] = "削除しました"
     redirect_to :posts
   end
 
