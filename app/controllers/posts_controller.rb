@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice_destroy] = "削除しました"
+    flash[:notice] = "削除しました"
     redirect_to :posts
   end
 

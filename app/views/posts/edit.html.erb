@@ -24,8 +24,9 @@
 
     <tr>
      <th><%= f.label :allday ,"終日" %></th>
-      <td><%= f.check_box :allday %>
-       <h5>終日の場合はチェックを入れます</h5>
+      <td>
+       <%= f.check_box :'allday' ,checked: @post.allday%>
+       <%= label_tag :allday,"終日の場合はチェックを入れてください" %>
       </td>
     </tr>
 
